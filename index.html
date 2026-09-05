@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tobacco Farmer GPS Tracking</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌾 Tobacco Farmer GPS Tracking</h1>
+            <div class="header-info">
+                <span id="userStatus">Status: Offline</span>
+                <span id="gpsAccuracy">Accuracy: --</span>
+                <span id="lastUpdate">Last Update: --</span>
+            </div>
+        </header>
 
+        <div class="content">
+            <aside class="sidebar">
+                <div class="control-panel">
+                    <h3>Tracking Control</h3>
+                    
+                    <div class="form-group">
+                        <label for="farmerName">Farmer Name:</label>
+                        <input type="text" id="farmerName" placeholder="Enter farmer name" value="Farmer 1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="farmerId">Farmer ID:</label>
+                        <input type="text" id="farmerId" placeholder="Enter ID" value="F001">
+                    </div>
+
+                    <div class="button-group">
+                        <button id="startBtn" class="btn btn-primary">Start Tracking</button>
+                        <button id="stopBtn" class="btn btn-danger" disabled>Stop Tracking</button>
+                        <button id="clearBtn" class="btn btn-secondary">Clear Data</button>
+                    </div>
+
+                    <div class="info-section">
+                        <h4>Current Location</h4>
+                        <div id="locationInfo">
+                            <p>Latitude: <span id="latitude">--</span></p>
+                            <p>Longitude: <span id="longitude">--</span></p>
+                            <p>Altitude: <span id="altitude">--</span></p>
+                            <p>Speed: <span id="speed">--</span> km/h</p>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <h4>Tracking Stats</h4>
+                        <div id="statsInfo">
+                            <p>Points Tracked: <span id="pointCount">0</span></p>
+                            <p>Distance: <span id="distance">0</span> km</p>
+                            <p>Duration: <span id="duration">00:00:00</span></p>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <h4>Tracked Farmers</h4>
+                        <div id="farmersList" class="farmers-list"></div>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="map-container">
+                <div id="map"></div>
+            </main>
+        </div>
+
+        <footer>
+            <p>Real-time GPS Tracking for Tobacco Farmers | Data saved locally</p>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

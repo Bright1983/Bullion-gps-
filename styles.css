@@ -1,0 +1,341 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2ecc71;
+    --danger-color: #e74c3c;
+    --secondary-color: #3498db;
+    --dark-bg: #2c3e50;
+    --light-bg: #ecf0f1;
+    --text-dark: #2c3e50;
+    --text-light: #7f8c8d;
+    --border-color: #bdc3c7;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: var(--text-dark);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.header-info {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.9rem;
+    opacity: 0.95;
+}
+
+.header-info span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Content Layout */
+.content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 320px;
+    background-color: white;
+    border-right: 1px solid var(--border-color);
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.control-panel {
+    padding: 1.5rem;
+}
+
+.control-panel h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+.control-panel h4 {
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.7rem;
+    color: var(--text-dark);
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(46, 204, 113, 0.2);
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.btn {
+    flex: 1;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btn-danger:hover:not(:disabled) {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+}
+
+.btn-secondary {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #7f8c8d;
+    transform: translateY(-2px);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Info Sections */
+.info-section {
+    background-color: var(--light-bg);
+    border-radius: 6px;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-left: 4px solid var(--primary-color);
+}
+
+.info-section p {
+    font-size: 0.85rem;
+    margin: 0.4rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-section span {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Farmers List */
+.farmers-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.farmer-item {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.7rem;
+    margin: 0.5rem 0;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-left: 3px solid var(--primary-color);
+}
+
+.farmer-item:hover {
+    background-color: var(--light-bg);
+    transform: translateX(2px);
+}
+
+.farmer-item.active {
+    background-color: rgba(46, 204, 113, 0.1);
+    border-left-color: var(--primary-color);
+}
+
+.farmer-item-name {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.farmer-item-details {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-top: 0.3rem;
+}
+
+/* Map Container */
+.map-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+/* Leaflet Customization */
+.leaflet-popup-content {
+    font-size: 0.9rem;
+}
+
+.leaflet-popup-content-wrapper {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-bg);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 280px;
+    }
+
+    .header-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        max-height: 200px;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    .header-info {
+        font-size: 0.8rem;
+        gap: 1rem;
+    }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-light);
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.tracking-active {
+    animation: pulse 2s infinite;
+}
+
+/* Status Indicators */
+.status-online {
+    color: var(--primary-color);
+}
+
+.status-offline {
+    color: var(--danger-color);
+}
